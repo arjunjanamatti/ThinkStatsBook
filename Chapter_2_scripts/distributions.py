@@ -58,6 +58,6 @@ def NotLiveBirthHistogram(data):
 
 LiveBirthHistogram(data)
 
-NotLiveBirthHistogram(data)
+# NotLiveBirthHistogram(data)
 
 # From the above it is observed, when Live birth has more frequency in week 38 to 42, whereas otherwise more frequency is for week 10 to 15
