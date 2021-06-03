@@ -18,6 +18,8 @@ data = data[data['prglength'] < 51]
 
 print(data['outcome'].value_counts())
 
+print(data.columns)
+
 ##### For LIVE birth
 
 def LiveBirthHistogram(data):
@@ -27,19 +29,19 @@ def LiveBirthHistogram(data):
     ##### PREGRNANCY LENGTH HISTOGRAM
     hist_prglength = dict(data_live['prglength'].value_counts().sort_index())
 
-    plt.bar(hist_prglength.keys(), hist_prglength.values())
-    plt.xlabel('Pregnancy Length in Weeks')
-    plt.ylabel('Frequency')
-    plt.title('Live Birth Histogram')
-    plt.show()
+    # plt.bar(hist_prglength.keys(), hist_prglength.values())
+    # plt.xlabel('Pregnancy Length in Weeks')
+    # plt.ylabel('Frequency')
+    # plt.title('Live Birth Histogram')
+    # plt.show()
 
     ##### Just born baby weight histogram
-    hist_prglength = dict(data_live['tot'].value_counts().sort_index())
+    hist_prglength = dict(data_live['birthwgt_lb'].value_counts().sort_index())
 
     plt.bar(hist_prglength.keys(), hist_prglength.values())
-    plt.xlabel('Pregnancy Length in Weeks')
+    plt.xlabel('Weight in lbs')
     plt.ylabel('Frequency')
-    plt.title('Live Birth Histogram')
+    plt.title('Weight in lbs of new born baby')
     plt.show()
 
 def NotLiveBirthHistogram(data):
