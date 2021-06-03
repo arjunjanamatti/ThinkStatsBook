@@ -43,16 +43,6 @@ def NotLiveBirthHistogram(data):
     plt.show()
 
 
-# selecting only outcome ==1 which is live birth
-data_live = data[data['outcome'] == 1]
+LiveBirthHistogram(data)
 
-print(f'There are {len(data_live)} live birth out of total {len(data)} birth')
-
-# Histogram for the pregnancy length
-hist_prglength = dict(data_live['prglength'].value_counts().sort_index())
-
-plt.bar(hist_prglength.keys(), hist_prglength.values())
-plt.xlabel('Pregnancy Length in Weeks')
-plt.ylabel('Frequency')
-plt.title('Live Birth Histogram')
-plt.show()
+NotLiveBirthHistogram(data)
