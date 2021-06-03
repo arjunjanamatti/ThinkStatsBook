@@ -9,13 +9,13 @@ import pickle
 import matplotlib.pyplot as plt
 import pandas as pd
 
-filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/preg_df.pickle"
+filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/selected_variables_data.pickle"
 
 with open(filename, 'rb') as read_file:
     data = pickle.load(read_file)
 
 data = data[data['prglength'] < 51]
-
+data = data[data['birthwgt_lb'] < 51]
 print(data['outcome'].value_counts())
 
 print(data.columns)
@@ -56,7 +56,7 @@ def NotLiveBirthHistogram(data):
     plt.show()
 
 
-# LiveBirthHistogram(data)
+LiveBirthHistogram(data)
 
 NotLiveBirthHistogram(data)
 
