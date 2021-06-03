@@ -16,8 +16,15 @@ with open(filename, 'rb') as read_file:
 
 data = data[data['prglength'] < 51]
 
+##### For LIVE birth
+# selecting only outcome ==1 which is live birth
+data_live = data[data['outcome'] == 1]
+
 # Histogram for the pregnancy length
-hist_prglength = dict(data['prglength'].value_counts().sort_index())
+hist_prglength = dict(data_live['prglength'].value_counts().sort_index())
 
 plt.bar(hist_prglength.keys(), hist_prglength.values())
+plt.xlabel('Pregnancy Length in Weeks')
+plt.ylabel('Frequency')
+plt.title('Live Birth Histogram')
 plt.show()
