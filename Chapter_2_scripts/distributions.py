@@ -23,7 +23,18 @@ print(data['outcome'].value_counts())
 def LiveBirthHistogram(data):
     # selecting only outcome ==1 which is live birth
     data_live = data[data['outcome'] == 1]
+
+    ##### PREGRNANCY LENGTH HISTOGRAM
     hist_prglength = dict(data_live['prglength'].value_counts().sort_index())
+
+    plt.bar(hist_prglength.keys(), hist_prglength.values())
+    plt.xlabel('Pregnancy Length in Weeks')
+    plt.ylabel('Frequency')
+    plt.title('Live Birth Histogram')
+    plt.show()
+
+    ##### Just born baby weight histogram
+    hist_prglength = dict(data_live['tot'].value_counts().sort_index())
 
     plt.bar(hist_prglength.keys(), hist_prglength.values())
     plt.xlabel('Pregnancy Length in Weeks')
@@ -43,6 +54,8 @@ def NotLiveBirthHistogram(data):
     plt.show()
 
 
-LiveBirthHistogram(data)
+# LiveBirthHistogram(data)
 
 NotLiveBirthHistogram(data)
+
+# From the above it is observed, when Live birth has more frequency in week 38 to 42, whereas otherwise more frequency is for week 10 to 15
