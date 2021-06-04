@@ -74,6 +74,15 @@ def LiveBirthHistogram(data):
     plt.ylabel('Frequency')
     plt.title("Mother's age at end of pregnancy")
     plt.show()
+    # Histogram for mothers age at end of pregnancy also looks like normal distribution with bulk of mothers in their 20's and very few in 30's or 40's
+    hist_prglength = dict(data_live['prglength'].value_counts().sort_index())
+
+    plt.bar(hist_prglength.keys(), hist_prglength.values())
+    plt.xlabel('Length of pregnancy in weeks')
+    plt.ylabel('Frequency')
+    plt.title('Length of pregnancy in weeks')
+    plt.show()
+
 
 def NotLiveBirthHistogram(data):
     # selecting only outcome ==1 which is live birth
