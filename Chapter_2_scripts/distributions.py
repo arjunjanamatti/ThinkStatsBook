@@ -101,3 +101,9 @@ LiveBirthHistogram(data)
 # NotLiveBirthHistogram(data)
 
 # From the above it is observed, when Live birth has more frequency in week 38 to 42, whereas otherwise more frequency is for week 10 to 15
+
+##### Outliers
+# Outliers are the extreme values which might be errors in measurement or might be accurate reports of rare events
+# For example if we the pregnancy length in terms of weeks, there is very less chance for successful birth for baby to be borth
+# within 10 weeks
+print(data['prglength'].value_counts().sort_index())
