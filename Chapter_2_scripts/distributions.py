@@ -107,3 +107,5 @@ LiveBirthHistogram(data)
 # For example if we the pregnancy length in terms of weeks, there is very less chance for successful birth for baby to be borth
 # within 10 weeks
 print(data['prglength'].value_counts().sort_index())
+# Also beyond 42 weeks, doctors recommend induced labor and this is also very unlikely.
+
