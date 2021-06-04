@@ -63,10 +63,17 @@ def LiveBirthHistogram(data):
     plt.bar(hist_prglength.keys(), hist_prglength.values())
     plt.xlabel('Weight in ounces')
     plt.ylabel('Frequency')
-    plt.title('Weight in lbs of new born baby')
+    plt.title('Weight in ounces of new born baby')
     plt.show()
     # Histogram for birthweight in pounds looks like uniform distribution
 
+    hist_prglength = dict(data_live['agepreg'].value_counts().sort_index())
+
+    plt.bar(hist_prglength.keys(), hist_prglength.values())
+    plt.xlabel("Mother's age at end of pregnancy")
+    plt.ylabel('Frequency')
+    plt.title("Mother's age at end of pregnancy")
+    plt.show()
 
 def NotLiveBirthHistogram(data):
     # selecting only outcome ==1 which is live birth
