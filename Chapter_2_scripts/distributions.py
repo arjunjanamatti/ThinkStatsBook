@@ -56,6 +56,7 @@ def LiveBirthHistogram(data):
     plt.ylabel('Frequency')
     plt.title('Weight in lbs of new born baby')
     plt.show()
+    # Histogram for birthweight in pounds looks like normal distribution
 
     hist_prglength = dict(data_live['birthwgt_oz'].value_counts().sort_index())
 
@@ -64,6 +65,7 @@ def LiveBirthHistogram(data):
     plt.ylabel('Frequency')
     plt.title('Weight in lbs of new born baby')
     plt.show()
+    # Histogram for birthweight in pounds looks like uniform distribution
 
 
 def NotLiveBirthHistogram(data):
