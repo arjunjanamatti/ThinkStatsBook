@@ -57,6 +57,15 @@ def LiveBirthHistogram(data):
     plt.title('Weight in lbs of new born baby')
     plt.show()
 
+    hist_prglength = dict(data_live['birthwgt_oz'].value_counts().sort_index())
+
+    plt.bar(hist_prglength.keys(), hist_prglength.values())
+    plt.xlabel('Weight in ounces')
+    plt.ylabel('Frequency')
+    plt.title('Weight in lbs of new born baby')
+    plt.show()
+
+
 def NotLiveBirthHistogram(data):
     # selecting only outcome ==1 which is live birth
     data_live = data[data['outcome'] != 1]
