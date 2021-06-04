@@ -9,7 +9,7 @@ import pickle
 import matplotlib.pyplot as plt
 import pandas as pd
 
-filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/selected_variables_data.pickle"
+filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/preg_df.pickle"
 
 with open(filename, 'rb') as read_file:
     data = pickle.load(read_file)
@@ -19,6 +19,16 @@ data = data[data['birthwgt_lb'] < 51]
 print(data['outcome'].value_counts())
 
 print(data.columns)
+selected_variables_data = data.copy()
+def data_cleaning():
+    selected_variables_data['agepreg'] = selected_variables_data['agepreg'].apply(lambda x: x / 100)
+    na_vals = [97, 98, 99]
+    selected_variables_data.loc[selected_variables_data['birthwgt_lb'] > 20, 'birthwgt_lb'] = np.nan
+    selected_variables_data['birthwgt_lb'] = selected_variables_data['birthwgt_lb'].apply(lambda x:x if x not in na_vals else np.nan)
+    selected_variables_data['birthwgt_oz'] = selected_variables_data['birthwgt_oz'].apply(lambda x:x if x not in na_vals else np.nan)
+    selected_variables_data['totalwgt_lb'] = (selected_variables_data['birthwgt_lb'] + selected_variables_data[
+        'birthwgt_oz']) / 16.0
+    return selected_variables_data
 
 ##### For LIVE birth
 
