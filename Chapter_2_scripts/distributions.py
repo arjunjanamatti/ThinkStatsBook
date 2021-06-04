@@ -8,6 +8,7 @@
 import pickle
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/preg_df.pickle"
 
@@ -26,9 +27,11 @@ def data_cleaning():
     selected_variables_data.loc[selected_variables_data['birthwgt_lb'] > 20, 'birthwgt_lb'] = np.nan
     selected_variables_data['birthwgt_lb'] = selected_variables_data['birthwgt_lb'].apply(lambda x:x if x not in na_vals else np.nan)
     selected_variables_data['birthwgt_oz'] = selected_variables_data['birthwgt_oz'].apply(lambda x:x if x not in na_vals else np.nan)
-    selected_variables_data['totalwgt_lb'] = (selected_variables_data['birthwgt_lb'] + selected_variables_data[
-        'birthwgt_oz']) / 16.0
+    selected_variables_data['totalwgt_lb'] = selected_variables_data['birthwgt_lb'] + (selected_variables_data[
+        'birthwgt_oz'] / 16.0)
     return selected_variables_data
+
+data = data_cleaning()
 
 ##### For LIVE birth
 
