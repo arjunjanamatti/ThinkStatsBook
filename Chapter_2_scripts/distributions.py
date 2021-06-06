@@ -125,15 +125,5 @@ ax = plt.subplot(111)
 w = 0.3
 ax.bar(hist_prglength_live.keys(), hist_prglength_live.values(), width=w, color='b', align='center')
 ax.bar(hist_prglength_others.keys(), hist_prglength_others.values(), width=w, color='r', align='center')
-# ax.xlabel('Pregnancy Length in Weeks')
-# ax.ylabel('Frequency')
-# ax.title('Babies Histogram')
-
-# plt.bar(hist_prglength_live.keys(), hist_prglength_live.values())
-# plt.bar(hist_prglength_others.keys(), hist_prglength_others.values())
-# plt.xlabel('Pregnancy Length in Weeks')
-# plt.ylabel('Frequency')
-# plt.title('Babies Histogram')
-# plt.bar(hist_prglength_others.keys(), hist_prglength_others.values())
 plt.show()
 
