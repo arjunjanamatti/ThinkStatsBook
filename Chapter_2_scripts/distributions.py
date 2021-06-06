@@ -96,7 +96,7 @@ def NotLiveBirthHistogram(data):
     plt.show()
 
 
-LiveBirthHistogram(data)
+# LiveBirthHistogram(data)
 
 # NotLiveBirthHistogram(data)
 
@@ -116,4 +116,23 @@ print(data_1['prglength'].value_counts().sort_index())
 
 
 ##### FIRST BABIES
+data_live = data_1[data_1['outcome'] == 1]
+others = data_1[data_1['outcome'] != 1]
+hist_prglength_live = dict(data_live['prglength'].value_counts().sort_index())
+hist_prglength_others = dict(others['prglength'].value_counts().sort_index())
+
+ax = plt.subplot(11)
+ax.bar(hist_prglength_live.keys(), hist_prglength_live.values())
+ax.bar(hist_prglength_others.keys(), hist_prglength_others.values())
+ax.xlabel('Pregnancy Length in Weeks')
+ax.ylabel('Frequency')
+ax.title('Babies Histogram')
+
+plt.bar(hist_prglength_live.keys(), hist_prglength_live.values())
+plt.bar(hist_prglength_others.keys(), hist_prglength_others.values())
+plt.xlabel('Pregnancy Length in Weeks')
+plt.ylabel('Frequency')
+plt.title('Babies Histogram')
+plt.bar(hist_prglength_others.keys(), hist_prglength_others.values())
+plt.show()
 
