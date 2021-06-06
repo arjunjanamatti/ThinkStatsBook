@@ -108,4 +108,12 @@ LiveBirthHistogram(data)
 # within 10 weeks
 print(data['prglength'].value_counts().sort_index())
 # Also beyond 42 weeks, doctors recommend induced labor and this is also very unlikely.
+# will consider the birth of babies after 27 weeks
+
+data_1 = data.copy()
+data_1 = data_1[data_1['prglength'] > 26]
+print(data_1['prglength'].value_counts().sort_index())
+
+
+##### FIRST BABIES
 
