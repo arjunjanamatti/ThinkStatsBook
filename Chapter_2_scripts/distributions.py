@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/preg_df.pickle"
+filename = "C:/Users/Arjun Janamatti/PycharmProjects/thinkstats_book/Data/selected_variables_data.pickle"
 
 with open(filename, 'rb') as read_file:
     data = pickle.load(read_file)
@@ -110,20 +110,26 @@ print(data['prglength'].value_counts().sort_index())
 # Also beyond 42 weeks, doctors recommend induced labor and this is also very unlikely.
 # will consider the birth of babies after 27 weeks
 
-data_1 = data.copy()
+data_1 = selected_variables_data.copy()
 data_1 = data_1[data_1['prglength'] > 26]
-print(data_1['prglength'].value_counts().sort_index())
+# print(data_1['prglength'].value_counts().sort_index())
 
 
 ##### FIRST BABIES
-data_live = data_1[data_1['outcome'] == 1]
-others = data_1[data_1['outcome'] != 1]
+data_live = data_1[data_1['birthord'] == 1]
+others = data_1[data_1['birthord'] != 1]
+print(data_1['outcome'].value_counts().sort_index)
 hist_prglength_live = dict(data_live['prglength'].value_counts().sort_index())
 hist_prglength_others = dict(others['prglength'].value_counts().sort_index())
+# ax = plt.subplot(111)
+# w = 0.5
+# ax.bar(hist_prglength_live.keys(), hist_prglength_live.values(), width=w, color='b', align='center')
+# ax.bar(hist_prglength_others.keys(), hist_prglength_others.values(), width=w, color='r', align='center')
+# plt.show()
 
-ax = plt.subplot(111)
-w = 0.3
-ax.bar(hist_prglength_live.keys(), hist_prglength_live.values(), width=w, color='b', align='center')
-ax.bar(hist_prglength_others.keys(), hist_prglength_others.values(), width=w, color='r', align='center')
+print(hist_prglength_live)
+print()
+print(hist_prglength_others)
+
+plt.hist([data_live['prglength'], others['prglength']])
 plt.show()
-
